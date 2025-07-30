@@ -173,7 +173,7 @@ export const SkillsInfo = [
   },
   {
     id: 1,
-    img: "../src/assets/sar.jpg",
+    img: sar,
     school: "Saraswati Vidya Mandir Senior Secondary School, Haryana",
     date: "April 2022 - March 2023",
     grade: "79%",
