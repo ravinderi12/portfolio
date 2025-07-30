@@ -1,4 +1,4 @@
-// Skills Section Logo's
+
 import htmlLogo from './assets/tech_logo/html.png';
 import cssLogo from './assets/tech_logo/css.png';
 
@@ -10,12 +10,14 @@ import tailwindcssLogo from './assets/tech_logo/tailwindcss.png';
 
 import nodejsLogo from './assets/tech_logo/nodejs.png';
 import expressjsLogo from './assets/tech_logo/express.png';
-
+import cyber from "./assets/cyber.png"
+import sar from "./assets/sar.jpg"
+import kuk from "./assets/kuk.jpg"    
 import mongodbLogo from './assets/tech_logo/mongodb.png';
 import firebaseLogo from './assets/tech_logo/firebase.png';
 import cLogo from './assets/tech_logo/c.png';
-
-
+import merni from "./assets/merni.png"
+import env from "./assets/env.png"
 import pythonLogo from './assets/tech_logo/python.png';
 import typescriptLogo from './assets/tech_logo/typescript.png';
 import gitLogo from './assets/tech_logo/git.png';
@@ -92,7 +94,7 @@ export const SkillsInfo = [
     {
      
   id: 1,
-  img: "../src/assets/merni.png",
+  img: merni,
   role: "Fullstack Developer (Learning Phase)",
   company: "Self Projects",
   date: "june 2024 – Present",
@@ -115,7 +117,7 @@ export const SkillsInfo = [
     {
       
   id: 1,
-  img: "../src/assets/cyber.png", // Replace with actual import or path to your image file
+  img: cyber, // Replace with actual import or path to your image file
   role: "Cyber Security Learner",
   company: "Self-paced / Online Platforms",
   date: "2023 – Present",
@@ -138,7 +140,7 @@ export const SkillsInfo = [
     {
       
   id: 3,
-  img: "../src/assets/env.png", // Add logo image and name it as envisionLogo in your assets
+  img: env, // Add logo image and name it as envisionLogo in your assets
   role: "Cyber Security Intern",
   company: "Envision Group",
   date: "July 2024 – August 2024",
@@ -162,7 +164,7 @@ export const SkillsInfo = [
    export const education = [
   {
     id: 0,
-    img: "../src/assets/sar.jpg", // Use your school logo image or import
+    img: sar, // Use your school logo image or import
     school: "Saraswati Vidya Mandir Senior Secondary School, Haryana",
     date: "April 2020 - March 2021",
     grade: "98.6%",
@@ -180,7 +182,7 @@ export const SkillsInfo = [
   },
   {
     id: 2,
-    img: "../src/assets/kuk.jpg", // Use Kurukshetra University logo here
+    img: kuk, // Use Kurukshetra University logo here
     school: "Kurukshetra University",
     date: "Oct 2023 – July 2027 (Ongoing)",
     grade: "",
