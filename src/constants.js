@@ -26,7 +26,7 @@ import mcLogo from './assets/tech_logo/mc.png';
 
 import netlifyLogo from './assets/tech_logo/netlify.png';
 import vercelLogo from './assets/tech_logo/vercel.png';
-
+import primg from "./assets/pro.png"
 
 
 
@@ -198,7 +198,7 @@ export const SkillsInfo = [
   title: "Marvel Universe Explorer",
   description:
     "A dynamic MERN stack web application that showcases Marvel universe content. Features include responsive UI, authentication, CRUD operations, and dynamic routing. Built using React, Node.js, Express, and MongoDB with Tailwind CSS for styling. Designed for both learning and real-world application experience.",
-  image: "../src/assets/pro.png", // Add your Marvel project screenshot and name it marvelLogo
+  image: primg, // Add your Marvel project screenshot and name it marvelLogo
   tags: ["React JS", "Node JS", "Express JS", "MongoDB", "Tailwind CSS", "REST API"],
 // Replace with actual GitHub repo
   webapp: "https://marvelverse-fvx0.onrender.com/", // Replace with actual deployed app link
