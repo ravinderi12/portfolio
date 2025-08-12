@@ -21,12 +21,14 @@
     "react-toastify": "^11.0.3",
     "react-typing-effect": "^2.0.5"
   },
+  "engines": {
+    "node": "18.x"
+  },
   "devDependencies": {
     "@babel/core": "^7.26.10",
     "@babel/helpers": "^7.26.10",
     "@babel/runtime": "^7.26.10",
     "@eslint/js": "^9.17.0",
-    "@eslint/plugin-kit": "^0.4.0",
     "@types/react": "^18.3.18",
     "@types/react-dom": "^18.3.5",
     "@vitejs/plugin-react": "^4.3.4",
