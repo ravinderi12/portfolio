@@ -1,13 +1,10 @@
 
 import htmlLogo from './assets/tech_logo/html.png';
 import cssLogo from './assets/tech_logo/css.png';
-
 import javascriptLogo from './assets/tech_logo/javascript.png';
 import reactjsLogo from './assets/tech_logo/reactjs.png';
-
 import nextjsLogo from './assets/tech_logo/nextjs.png';
 import tailwindcssLogo from './assets/tech_logo/tailwindcss.png';
-
 import nodejsLogo from './assets/tech_logo/nodejs.png';
 import expressjsLogo from './assets/tech_logo/express.png';
 import cyber from "./assets/cyber.png"
@@ -25,13 +22,9 @@ import githubLogo from './assets/tech_logo/github.png';
 import vscodeLogo from './assets/tech_logo/vscode.png';
 import postmanLogo from './assets/tech_logo/postman.png';
 import mcLogo from './assets/tech_logo/mc.png';
-
 import netlifyLogo from './assets/tech_logo/netlify.png';
 import vercelLogo from './assets/tech_logo/vercel.png';
 import primg from "./assets/pro.png"
-
-
-
 
 export const SkillsInfo = [
   {
@@ -116,7 +109,7 @@ export const SkillsInfo = [
     },
     {
       
-  id: 1,
+  id: 2,
   img: cyber, // Replace with actual import or path to your image file
   role: "Cyber Security Learner",
   company: "Self-paced / Online Platforms",

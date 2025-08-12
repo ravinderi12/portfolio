@@ -8,13 +8,21 @@ const Navbar = () => {
   const [activeSection, setActiveSection] = useState("");
   const [isScrolled, setIsScrolled] = useState(false);
 
-  // Detect scroll and change navbar background
+  // Throttled scroll handler for better performance
   useEffect(() => {
+    let ticking = false;
+    
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          setIsScrolled(window.scrollY > 50);
+          ticking = false;
+        });
+        ticking = true;
+      }
     };
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -39,35 +47,38 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`fixed top-0 w-full z-50 transition duration-300 px-[7vw] md:px-[7vw] lg:px-[20vw] ${
+      className={`fixed top-0 w-full z-50 transition duration-300 px-4 sm:px-6 md:px-8 lg:px-16 xl:px-20 ${
         isScrolled ? "bg-[#050414] bg-opacity-50 backdrop-blur-md shadow-md" : "bg-transparent"
       }`}
     >
-      <div className="text-white py-5 flex justify-between items-center">
+      <div className="text-white py-3 sm:py-4 md:py-5 flex justify-between items-center">
         {/* Logo */}
       <div
-  className="text-lg font-semibold cursor-pointer"
-  onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
->
-  <span className="text-[#8245ec]">&lt;</span>
-  <span className="text-white">Ravinder</span>
-  <span className="text-[#8245ec]">/</span>
-  <span className="text-white">Singh</span>
-  <span className="text-[#8245ec]">&gt;</span>
-</div>
+        className="text-sm sm:text-base md:text-lg font-semibold cursor-pointer transition-colors hover:text-purple-400"
+        onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+      >
+        <span className="text-[#8245ec]">&lt;</span>
+        <span className="text-white">Ravinder</span>
+        <span className="text-[#8245ec]">/</span>
+        <span className="text-white">Singh</span>
+        <span className="text-[#8245ec]">&gt;</span>
+      </div>
 
 
 
         {/* Desktop Menu */}
-        <ul className="hidden md:flex space-x-8 text-gray-300">
+        <ul className="hidden md:flex space-x-4 lg:space-x-6 xl:space-x-8 text-gray-300">
           {menuItems.map((item) => (
             <li
               key={item.id}
-              className={`cursor-pointer hover:text-[#8245ec] ${
+              className={`cursor-pointer hover:text-[#8245ec] transition-colors duration-200 ${
                 activeSection === item.id ? "text-[#8245ec]" : ""
               }`}
             >
-              <button onClick={() => handleMenuItemClick(item.id)}>
+              <button 
+                onClick={() => handleMenuItemClick(item.id)}
+                className="text-sm lg:text-base px-2 py-1 rounded hover:bg-purple-500/10"
+              >
                 {item.label}
               </button>
             </li>
@@ -75,63 +86,63 @@ const Navbar = () => {
         </ul>
 
         {/* Social Icons */}
-        <div className="hidden md:flex space-x-4">
+        <div className="hidden lg:flex space-x-3">
           <a
             href="https://github.com/ravinderi12"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-gray-300 hover:text-[#8245ec]"
+            className="text-gray-300 hover:text-[#8245ec] transition-colors p-2 rounded-full hover:bg-purple-500/10"
           >
-            <FaGithub size={24} />
+            <FaGithub size={20} />
           </a>
           <a
             href="https://www.linkedin.com/in/ravinder-singh-28a7a929a/"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-gray-300 hover:text-[#8245ec]"
+            className="text-gray-300 hover:text-[#8245ec] transition-colors p-2 rounded-full hover:bg-purple-500/10"
           >
-            <FaLinkedin size={24} />
+            <FaLinkedin size={20} />
           </a>
         </div>
 
         {/* Mobile Menu Icon */}
-        <div className="md:hidden">
-          {isOpen ? (
-            <FiX
-              className="text-3xl text-[#8245ec] cursor-pointer"
-              onClick={() => setIsOpen(false)}
-            />
-          ) : (
-            <FiMenu
-              className="text-3xl text-[#8245ec] cursor-pointer"
-              onClick={() => setIsOpen(true)}
-            />
-          )}
+        <div className="lg:hidden">
+          <button
+            onClick={() => setIsOpen(!isOpen)}
+            className="text-[#8245ec] p-2 rounded-lg hover:bg-purple-500/10 transition-colors"
+            aria-label="Toggle menu"
+          >
+            {isOpen ? (
+              <FiX className="text-2xl sm:text-3xl" />
+            ) : (
+              <FiMenu className="text-2xl sm:text-3xl" />
+            )}
+          </button>
         </div>
       </div>
 
       {/* Mobile Menu Items */}
       {isOpen && (
-        <div className="absolute top-16 left-1/2 transform -translate-x-1/2 w-4/5 bg-[#050414] bg-opacity-50 backdrop-filter backdrop-blur-lg z-50 rounded-lg shadow-lg md:hidden">
-          <ul className="flex flex-col items-center space-y-4 py-4 text-gray-300">
+        <div className="absolute top-full left-0 right-0 mx-4 mt-2 bg-[#050414] bg-opacity-95 backdrop-filter backdrop-blur-lg z-50 rounded-xl shadow-2xl border border-purple-500/20 lg:hidden">
+          <ul className="flex flex-col items-center space-y-2 py-6 text-gray-300">
             {menuItems.map((item) => (
-              <li
-                key={item.id}
-                className={`cursor-pointer hover:text-white ${
-                  activeSection === item.id ? "text-[#8245ec]" : ""
-                }`}
-              >
-                <button onClick={() => handleMenuItemClick(item.id)}>
+              <li key={item.id} className="w-full">
+                <button 
+                  onClick={() => handleMenuItemClick(item.id)}
+                  className={`w-full py-3 px-6 text-center hover:text-white hover:bg-purple-500/10 rounded-lg transition-all duration-200 ${
+                    activeSection === item.id ? "text-[#8245ec] bg-purple-500/20" : ""
+                  }`}
+                >
                   {item.label}
                 </button>
               </li>
             ))}
-            <div className="flex space-x-4">
+            <div className="flex space-x-6 pt-4 border-t border-gray-700 mt-4">
               <a
                 href="https://github.com/ravinderi12"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-300 hover:text-white"
+                className="text-gray-300 hover:text-[#8245ec] p-2 rounded-full hover:bg-purple-500/10 transition-all"
               >
                 <FaGithub size={24} />
               </a>
@@ -139,7 +150,7 @@ const Navbar = () => {
                 href="https://www.linkedin.com/in/ravinder-singh-28a7a929a/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-300 hover:text-white"
+                className="text-gray-300 hover:text-[#8245ec] p-2 rounded-full hover:bg-purple-500/10 transition-all"
               >
                 <FaLinkedin size={24} />
               </a>
